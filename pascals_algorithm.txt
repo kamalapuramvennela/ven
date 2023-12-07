@@ -1,0 +1,47 @@
+Algorithm: Generate Pascal's Triangle
+
+Input: numRows(number of rows to generate in Pascal's triangle)
+
+Output: Pascal's triangle as a list of lists
+
+1.Initialize an empty list pascals_triangle to store the rows of Pascal's triangle.
+
+2.If numRows is 0, return an empty list since there won't be any rows in Pascal's triangle.
+
+3.Append the first row [1] to the pascals_triangle list.
+
+4.Iterate from the second row up to numRows:
+
+        a. Get the previous row prev_row from pascals_triangle.
+
+        b. Initialize a new list new_row with the value [1] (first element of each row).
+
+	c. For each index j in the range from 1 to i-1 (where i is the current row number):
+
+	d. Append 1 to the new_row (last element of each row).
+
+	e. Append the new_row to the pascals_triangle.
+
+5.Return the pascals_triangle containing rows representing Pascal's triangle up to numRows
+
+LOGIC:
+
+Initializing the triangle with the first row [1].
+For each subsequent row:
+	Take the last row generated.
+	Start a new row with 1.
+	Calculate values between the first and last element by summing up the elements from the previous row.
+	Append 1 at the end of the row.
+	Add the new row to the triangle.
+This process continues until the desired number of rows (numRows) is achieved.
+
+Overall, the algorithm builds Pascal's triangle row by row, each row being dependent on the row above it, 
+following the adjacent values from the previous row and adding 1 at both ends to create the next row.
+The dynamic programming approach optimizes the computation by reusing the previously generated rows to construct subsequent rows efficiently.
+
+
+
+
+
+
+

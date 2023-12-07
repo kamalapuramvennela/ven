@@ -1,0 +1,36 @@
+Algorithm: Lowest Common Ancestor in Binary Search Tree (BST)
+Inputs:
+root: Root node of the Binary Search Tree (BST).
+p: Node representing one of the elements to find the LCA for.
+q: Node representing the other element to find the LCA for.
+
+Output:
+lca_node: The lowest common ancestor node of p and q.
+
+Steps:
+lowest_common_ancestor(root, p, q):
+1.If any of the given nodes p or q is None, return None.
+
+2.While the root exists:
+Check if both nodes p and q are greater than the current root value. If so, move to the right child.
+Check if both nodes p and q are smaller than the current root value. If so, move to the left child.
+If the above conditions are not met, it means the current root is the lowest common ancestor, so return it.
+
+LOGIC:
+
+The core logic of the LCA algorithm lies in the while loop:
+
+1.Traversing the Tree:
+	It iterates through the BST using a while loop. While the root exists, it continuously checks conditions to determine the direction to traverse the tree.
+Finding the LCA:
+
+2.The loop navigates the tree based on the values of p and q relative to the current root.
+	If both p and q are greater than the root's value, it moves to the right subtree.
+	If both p and q are smaller than the root's value, it moves to the left subtree.
+	If the above conditions are not met, it implies that the current root is the lowest common ancestor, and the loop terminates, returning this node.
+
+3.Return Result:
+	If a common ancestor is found, it returns the node representing the LCA.
+	If no common ancestor is found during traversal (when the loop exits without returning a node), it returns None.
+This algorithm effectively exploits the structure of the BST, optimizing the search by eliminating the need to traverse subtrees that cannot contain the lowest common ancestor.
+It has a time complexity of O(h) on average, where h is the height of the BST, and a space complexity of O(1), as it doesn't use any additional data structures for storage.

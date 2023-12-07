@@ -1,0 +1,48 @@
+Algorithm:
+Input:
+s: A string
+
+Output:
+Return the shortest palindrome that can be formed by adding characters to the beginning of the input string s.
+
+Steps:
+1.Define the function shortest_palindrome(s):
+
+2.If the input string s is empty (not s), return an empty string ("").
+
+3.Reverse the input string s to get rev_s.
+
+4.Construct a modified string l by concatenating s, a special character '#', and the reversed string rev_s.
+
+5.Create an array p of length equal to the length of the concatenated string l and initialize it with zeros.
+
+6.Implement the KMP algorithm to calculate the longest suffix that is also a prefix at each index in the string l:
+
+	a. Iterate through the concatenated string l.
+
+	b. For each index i from 1 to the length of l:
+
+7.Determine the length of the longest suffix that is also a prefix by accessing the last element of the p array, denoted as p[-1].
+
+8.Construct the shortest palindrome by taking a substring of the reversed string rev_s from index len(s) - p[-1] and concatenate it with the original input string s.
+
+9.Return the constructed shortest palindrome.
+
+LOGIC:
+
+1.Reversal of the String:
+The input string s is reversed to rev_s. This step is necessary to find the longest palindrome suffix of the original string.
+
+2.Modified String Creation (l):
+A modified string l is formed by concatenating s, a special character '#', and the reversed string rev_s. The '#' serves as a separator.
+
+3.KMP Algorithm:
+The code utilizes a variation of the Knuth-Morris-Pratt (KMP) algorithm to calculate the longest suffix that is also a prefix at each index in the string l.
+The KMP algorithm typically finds the longest proper prefix which is also a proper suffix for each index in a string. In this case, the algorithm is slightly modified to find the length of the longest suffix that is also a prefix.
+
+4.Building the Shortest Palindrome:
+The KMP array p stores information about the longest suffix that is also a prefix at each index in the concatenated string l.
+The length of the longest palindrome suffix in the reversed string rev_s is determined by p[-1].
+The constructed shortest palindrome is obtained by taking a substring of rev_s from the calculated index (len(s) - p[-1]) and concatenating it with the original input string s.
+
+This approach efficiently finds the shortest palindrome by identifying the longest palindromic suffix in the reversed string and appending the remaining non-palindromic part from the original string to form the shortest palindrome.
